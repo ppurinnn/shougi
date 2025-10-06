@@ -1,0 +1,79 @@
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: #eee;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-board {
+    display: flex;
+    flex-direction: column-reverse; /* 先手駒台が下に来るように */
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(9, 60px);
+    grid-template-rows: repeat(9, 60px);
+    border: 2px solid #663300;
+    background-color: #e6c89c; /* 将棋盤の色 */
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #663300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.cell.selected {
+    background-color: rgba(255, 255, 0, 0.5);
+}
+
+.cell.possible-move {
+    background-color: rgba(0, 255, 0, 0.3);
+    cursor: pointer;
+}
+
+.piece {
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.piece.sente {
+    color: #000;
+    transform: rotate(0deg);
+}
+
+.piece.gote {
+    color: #000;
+    transform: rotate(180deg);
+}
+
+#komadai-sente, #komadai-gote {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 50px;
+    width: 540px; /* 9マス x 60px */
+    border: 1px solid #663300;
+    background-color: #d1b18e;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+#komadai-sente .komadai-piece, #komadai-gote .komadai-piece {
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 2px;
+}
